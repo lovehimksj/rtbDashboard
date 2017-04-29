@@ -1,0 +1,50 @@
+
+
+
+
+/*================================================================================
+	Item Name: Ahoy ad exchange dashboard
+	Version: 1.0
+	Author: Himanshu Maheshwari
+	Author URL:
+================================================================================
+
+NOTE:
+------
+PLACE HERE YOUR OWN CSS CODES AND IF NEEDED, OVERRIDE THE STYLES FROM THE OTHER STYLESHEETS.
+WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR STYLES IT'S BETTER LIKE THIS.  */
+
+
+.progress-loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.34);
+    z-index: 9999;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+.progress-wrap {
+    width: 260px;
+    height: 100px;
+    padding: 10px;
+    background: #1D2B36;
+    box-shadow: 1px 1px 8px 1px rgba(128, 128, 128, 0.35);
+}
+.progress-container {
+    display: flex;
+    align-items: center;
+    /*justify-content: center;*/
+    height: 100%;
+    flex-grow: 1;
+    flex-wrap: wrap;
+}
+.progress-container .progress {
+    margin: 0;
+}
+.progress-loader.loader-active {
+    display: flex;
+}
