@@ -138,13 +138,13 @@ $(window).on("load", function(){
             hoverBackgroundColor: "#ffb74d",
             borderColor: "transparent"
         },
-            {
-                label: "Native",
-                data: datapoints3,
-                backgroundColor: "#ef9a9a",
-                hoverBackgroundColor: "#e57373",
-                borderColor: "transparent"
-            }]
+        {
+            label: "Native",
+            data: datapoints3,
+            backgroundColor: "#ef9a9a",
+            hoverBackgroundColor: "#e57373",
+            borderColor: "transparent"
+        }]
     };
 
     var config = {

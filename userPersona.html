@@ -20,6 +20,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <!-- BEGIN VENDOR CSS-->
     <link rel="stylesheet" type="text/css" href="app-assets/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="app-assets/vendors/css/pickers/datepicker/bootstrap-datepicker.css">
     <!-- font icons-->
     <link rel="stylesheet" type="text/css" href="app-assets/fonts/icomoon.css">
     <link rel="stylesheet" type="text/css" href="app-assets/fonts/flag-icon-css/css/flag-icon.min.css">
@@ -80,11 +81,11 @@
         <ul id="main-menu-navigation" data-menu="menu-navigation" class="navigation navigation-main">
             <li class=" nav-item"><a href="index.html"><i class="icon-home3"></i><span data-i18n="nav.dash.main" class="menu-title">Dashboard</span></a>
                 <ul class="menu-content">
-                    <li class="active"><a href="dashboard.html" data-i18n="nav.dash.main" class="menu-item">Live Traffic</a></li>
-                    <li class=""><a href="bidRequest.html" data-i18n="nav.dash.main" class="menu-item">Bid Request</a></li>
-                    <li class=""><a href="sspWiseTraffic.html" data-i18n="nav.dash.main" class="menu-item">SSP Wise Traffic</a></li>
-                    <li class=""><a href="uniqueUser.html" data-i18n="nav.dash.main" class="menu-item">Unique User</a></li>
-                    <li class=""><a href="userPersona.html" data-i18n="nav.dash.main" class="menu-item">User Persona</a></li>
+                    <li><a href="dashboard.html" data-i18n="nav.dash.main" class="menu-item">Live Traffic</a></li>
+                    <li><a href="bidRequest.html" data-i18n="nav.dash.main" class="menu-item">Bid Request</a></li>
+                    <li><a href="sspWiseTraffic.html" data-i18n="nav.dash.main" class="menu-item">SSP Wise Traffic</a></li>
+                    <!--<li class=""><a href="uniqueUser.html" data-i18n="nav.dash.main" class="menu-item">Unique User</a></li>-->
+                    <li class="active"><a href="userPersona.html" data-i18n="nav.dash.main" class="menu-item">User Persona</a></li>
                 </ul>
             </li>
             <li class=" nav-item"><a href="#"><i class="icon-stack-2"></i><span data-i18n="nav.page_layouts.main" class="menu-title">Configuration</span></a>
@@ -113,7 +114,7 @@
 
         <div class="content-header row">
             <div class="content-header-left col-md-6 col-xs-12 mb-1">
-                <h6 class="content-header-title">Stats of last 30 min.</h6>
+                <h5 class="content-header-title">Historical Data of User Profile</h5>
             </div>
             <div class="content-header-right col-md-6 col-xs-12">
                 <h6 class="content-header-title text-lg-right"><small>Updated on <span id="updatedTime"></span></small></h6>
@@ -121,19 +122,19 @@
         </div>
 
         <div class="content-body">
-            <!--Bid stats for last 30 min-->
+
             <div class="row">
-                <div class="col-xl-3 col-lg-6 col-xs-12">
+                <div class="col-xl-4 col-lg-4 col-xs-12">
                     <div class="card">
                         <div class="card-body">
                             <div class="card-block">
                                 <div class="media">
                                     <div class="media-body text-xs-left">
-                                        <h3 class="deep-orange">100 M</h3>
-                                        <span>Bid Request</span>
+                                        <h3 class="deep-orange">1000 M</h3>
+                                        <span>User Base</span>
                                     </div>
                                     <div class="media-right media-middle">
-                                        <i class="icon-hammer22 deep-orange font-large-2 float-xs-right"></i>
+                                        <i class="icon-user deep-orange font-large-2 float-xs-right"></i>
                                     </div>
                                 </div>
                             </div>
@@ -141,17 +142,17 @@
                     </div>
                 </div>
 
-                <div class="col-xl-3 col-lg-6 col-xs-12">
+                <div class="col-xl-4 col-lg-4 col-xs-12">
                     <div class="card">
                         <div class="card-body">
                             <div class="card-block">
                                 <div class="media">
                                     <div class="media-body text-xs-left">
                                         <h3 class="cyan">10 M</h3>
-                                        <span>Bid Win</span>
+                                        <span>Unique User</span>
                                     </div>
                                     <div class="media-right media-middle">
-                                        <i class="icon-target2 cyan font-large-2 float-xs-right"></i>
+                                        <i class="icon-user-secret cyan font-large-2 float-xs-right"></i>
                                     </div>
                                 </div>
                             </div>
@@ -159,35 +160,17 @@
                     </div>
                 </div>
 
-                <div class="col-xl-3 col-lg-6 col-xs-12">
+                <div class="col-xl-4 col-lg-4 col-xs-12">
                     <div class="card">
                         <div class="card-body">
                             <div class="card-block">
                                 <div class="media">
                                     <div class="media-body text-xs-left">
-                                        <h3 class="red">$ 120.00</h3>
-                                        <span>Invested</span>
+                                        <h3 class="red">120 M</h3>
+                                        <span>Profiled User</span>
                                     </div>
                                     <div class="media-right media-middle">
-                                        <i class="icon-money1 red font-large-2 float-xs-right"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-xl-3 col-lg-6 col-xs-12">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="card-block">
-                                <div class="media">
-                                    <div class="media-body text-xs-left">
-                                        <h3 class="indigo">$ 120.00</h3>
-                                        <span>Revenue</span>
-                                    </div>
-                                    <div class="media-right media-middle">
-                                        <i class="icon-moneypig indigo font-large-2 float-xs-right"></i>
+                                        <i class="icon-user-check red font-large-2 float-xs-right"></i>
                                     </div>
                                 </div>
                             </div>
@@ -196,359 +179,181 @@
                 </div>
 
             </div>
-            <!--/ stats -->
 
-            <!--/ query per second charts for last 30 min live traffic -->
+            <!-- World Map -->
             <div class="row">
-                <div class="col-xl-12 col-lg-12">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="card-block">
-                                <h4 class="font-medium-5 blue-grey text-bold-300">Query per second</h4>
-                                <h6 class="card-subtitle font-medium-2 text-bold-200 text-muted">Records of last 30 minutes</h6>
-                            </div>
-                            <div class="chartjs height-350">
-                                <div id="realtime" class="height-350"></div>
-                                <!--<canvas id="line-stacked-area" height="250"></canvas>-->
-                            </div>
-                        </div>
 
-                        <div class="card-footer">
-                            <div class="row">
-                                <div class="col-xs-3 text-xs-center">
-                                    <span class="text-muted text-truncate">Avg QPS</span>
-                                    <h2 class="block font-weight-normal">30 M</h2>
-                                    <progress class="progress progress-xs mt-2 progress-success" value="100" max="100"></progress>
-                                </div>
-                                <div class="col-xs-3 text-xs-center">
-                                    <span class="text-muted text-truncate">Request Served</span>
-                                    <h2 class="block font-weight-normal">20 M</h2>
-                                    <progress class="progress progress-xs mt-2 progress-success" value="40" max="100"></progress>
-                                </div>
-                                <div class="col-xs-3 text-xs-center">
-                                    <span class="text-muted text-truncate">Bid Requested</span>
-                                    <h2 class="block font-weight-normal">18 M</h2>
-                                    <progress class="progress progress-xs mt-2 progress-success" value="60" max="100"></progress>
-                                </div>
-                                <div class="col-xs-3 text-xs-center">
-                                    <span class="text-muted text-truncate">Bid Win</span>
-                                    <h2 class="block font-weight-normal">5 M</h2>
-                                    <progress class="progress progress-xs mt-2 progress-success" value="90" max="100"></progress>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-            <!--/ project charts -->
-            <!-- Recent Bid Win Table -->
-            <div class="row match-height">
-                <div class="col-xl-4 col-lg-12">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="media">
-                                <div class="p-2 text-xs-center bg-deep-orange media-left media-middle">
-                                    <i class="icon-bullhorn font-large-2 white"></i>
-                                </div>
-                                <div class="p-2 media-body">
-                                    <h5 class="deep-orange"># Campaign</h5>
-                                    <h5 class="text-bold-400">1,22,356</h5>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="media">
-                                <div class="p-2 media-body text-xs-left">
-                                    <h5 class="teal"># Serving Campaign</h5>
-                                    <h5 class="text-bold-400">22,356</h5>
-                                </div>
-                                <div class="p-2 text-xs-center bg-teal media-right media-middle">
-                                    <i class="icon-tachometer font-large-2 white"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="earning-chart position-relative">
-                                <div class="chart-title position-absolute mt-2 ml-2">
-                                    <h1 class="display-4">$9865</h1>
-                                    <span class="text-muted">Total Earning</span>
-                                </div>
-                                <canvas id="earning-chart" class="height-450 block"></canvas>
-                                <div class="chart-stats position-absolute position-bottom-0 position-right-0 mb-2 mr-3">
-                                    <a href="javascript:void(0)" class="btn bg-cyan mr-1 white">Statistics <i class="icon-stats-bars"></i></a><span class="text-muted">for the <a href="javascript:void(0)" class="primary darken-2">Last 30 Min.</a></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--<div class="card">
-                        <div class="card-body">
-                            <div class="media">
-                                <div class="p-2 text-xs-center bg-cyan media-left media-middle">
-                                    <i class="icon-camera7 font-large-2 white"></i>
-                                </div>
-                                <div class="p-2 media-body">
-                                    <h5>New Products</h5>
-                                    <h5 class="text-bold-400">28</h5>
-                                </div>
-                            </div>
-                        </div>
-                    </div>-->
-                </div>
-
-                <div class="col-xl-8 col-lg-12">
+                <div class="col-xs-6">
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="font-medium-5 blue-grey text-bold-300">Recent Bid Wins campaign wise</h4>
-                            <div class="heading-elements">
-                                <ul class="list-inline mb-0">
-                                    <li><a data-action="reload"><i class="icon-reload"></i></a></li>
-                                    <li><a data-action="expand"><i class="icon-expand2"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <div class="table-responsive">
-                                <table class="table table-hover mb-0">
-                                    <thead>
-                                    <tr>
-                                        <th class="font-small-3 indigo darken-3 text-bold-400">ID#</th>
-                                        <th class="font-small-3 indigo darken-3 text-bold-400">Campaign Name</th>
-                                        <th class="font-small-3 indigo darken-3 text-bold-400">Creative Type</th>
-                                        <th class="font-small-3 indigo darken-3 text-bold-400">SSP Name</th>
-                                        <th class="font-small-3 indigo darken-3 text-bold-400">Rate</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate"><a class="blue-grey" href="javascript:void(0)">INV-001001</a></td>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate">Lorem Ipsum dollar ipsum</td>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate">Banner (cc_id)</td>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate">SSP 1</td>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate">$ 0.010</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate"><a class="blue-grey" href="javascript:void(0)">INV-001001</a></td>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate">Lorem Ipsum dollar ipsum</td>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate">Banner (cc_id)</td>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate">SSP 1</td>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate">$ 0.010</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate"><a class="blue-grey" href="javascript:void(0)">INV-001001</a></td>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate">Lorem Ipsum dollar ipsum</td>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate">Banner (cc_id)</td>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate">SSP 1</td>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate">$ 0.010</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate"><a class="blue-grey" href="javascript:void(0)">INV-001001</a></td>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate">Lorem Ipsum dollar ipsum</td>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate">Banner (cc_id)</td>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate">SSP 1</td>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate">$ 0.010</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate"><a class="blue-grey" href="javascript:void(0)">INV-001001</a></td>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate">Lorem Ipsum dollar ipsum</td>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate">Banner (cc_id)</td>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate">SSP 1</td>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate">$ 0.010</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate"><a class="blue-grey" href="javascript:void(0)">INV-001001</a></td>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate">Lorem Ipsum dollar ipsum</td>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate">Banner (cc_id)</td>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate">SSP 1</td>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate">$ 0.010</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate"><a class="blue-grey" href="javascript:void(0)">INV-001001</a></td>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate">Lorem Ipsum dollar ipsum</td>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate">Banner (cc_id)</td>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate">SSP 1</td>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate">$ 0.010</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate"><a class="blue-grey" href="javascript:void(0)">INV-001001</a></td>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate">Lorem Ipsum dollar ipsum</td>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate">Banner (cc_id)</td>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate">SSP 1</td>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate">$ 0.010</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate"><a class="blue-grey" href="javascript:void(0)">INV-001001</a></td>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate">Lorem Ipsum dollar ipsum</td>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate">Banner (cc_id)</td>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate">SSP 1</td>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate">$ 0.010</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate"><a class="blue-grey" href="javascript:void(0)">INV-001001</a></td>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate">Lorem Ipsum dollar ipsum</td>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate">Banner (cc_id)</td>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate">SSP 1</td>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate">$ 0.010</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate"><a class="blue-grey" href="javascript:void(0)">INV-001001</a></td>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate">Lorem Ipsum dollar ipsum</td>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate">Banner (cc_id)</td>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate">SSP 1</td>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate">$ 0.010</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate"><a class="blue-grey" href="javascript:void(0)">INV-001001</a></td>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate">Lorem Ipsum dollar ipsum</td>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate">Banner (cc_id)</td>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate">SSP 1</td>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate">$ 0.010</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate"><a class="blue-grey" href="javascript:void(0)">INV-001001</a></td>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate">Lorem Ipsum dollar ipsum</td>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate">Banner (cc_id)</td>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate">SSP 1</td>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate">$ 0.010</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate"><a class="blue-grey" href="javascript:void(0)">INV-001001</a></td>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate">Lorem Ipsum dollar ipsum</td>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate">Banner (cc_id)</td>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate">SSP 1</td>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate">$ 0.010</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate"><a class="blue-grey" href="javascript:void(0)">INV-001001</a></td>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate">Lorem Ipsum dollar ipsum</td>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate">Banner (cc_id)</td>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate">SSP 1</td>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate">$ 0.010</td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-xs-12">
-                    <div class="card">
-                        <div class="card-header">
-                            <h4 class="card-title">Query SSP Wise</h4>
+                            <h4 class="font-medium-5 blue-grey text-bold-300">User profile based on location</h4>
+                            <h6 class="font-small-2 text-bold-100 text-muted">Total user with location : {{UserCount}}</h6>
                             <a class="heading-elements-toggle"><i class="icon-ellipsis font-medium-3"></i></a>
                             <div class="heading-elements">
                                 <ul class="list-inline mb-0">
                                     <li><a data-action="collapse"><i class="icon-minus4"></i></a></li>
                                     <li><a data-action="reload"><i class="icon-reload"></i></a></li>
                                     <li><a data-action="expand"><i class="icon-expand2"></i></a></li>
+                                    <li><a data-action="close"><i class="icon-cross2"></i></a></li>
                                 </ul>
                             </div>
                         </div>
                         <div class="card-body collapse in">
-                            <div class="card-block chartjs">
-                                <canvas id="area-chart"></canvas>
+                            <div class="card-block">
+                                <div id="container" class="height-800"></div>
                             </div>
                         </div>
                     </div>
                 </div>
+
+                <div class="col-xs-6">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="font-medium-5 blue-grey text-bold-300">User profile based on operator</h4>
+                            <h6 class="font-small-2 text-bold-100 text-muted">Total user with operator : {{UserCount}}</h6>
+                            <a class="heading-elements-toggle"><i class="icon-ellipsis font-medium-3"></i></a>
+                            <div class="heading-elements">
+                                <ul class="list-inline mb-0">
+                                    <li><a data-action="collapse"><i class="icon-minus4"></i></a></li>
+                                    <li><a data-action="reload"><i class="icon-reload"></i></a></li>
+                                    <li><a data-action="expand"><i class="icon-expand2"></i></a></li>
+                                    <li><a data-action="close"><i class="icon-cross2"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="card-body collapse in">
+                            <div class="card-block">
+                                <div id="container2" class="height-700"></div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <div class="row">
+                                <div class="col-xs-4 text-xs-center">
+                                    <span class="text-muted text-truncate">Total User Base</span>
+                                    <h2 class="block font-weight-normal">30 M</h2>
+                                </div>
+                                <div class="col-xs-4 text-xs-center">
+                                    <span class="text-muted text-truncate">Operator Known</span>
+                                    <h2 class="block font-weight-normal">200 MS</h2>
+                                </div>
+                                <div class="col-xs-4 text-xs-center">
+                                    <span class="text-muted text-truncate">Operator N/A</span>
+                                    <h2 class="block font-weight-normal">20 M</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
-            <!-- Recent Bid Win Table -->
-            <!-- <div class="row match-height">
-                 <div class="col-xl-4 col-md-6 col-sm-12">
-                     <div class="card" style="height: 440px;">
-                         <div class="card-body">
-                             <img class="card-img-top img-fluid" src="app-assets/images/carousel/05.jpg" alt="Card image cap">
-                             <div class="card-block">
-                                 <h4 class="card-title">Basic</h4>
-                                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                 <a href="#" class="btn btn-outline-pink">Go somewhere</a>
-                             </div>
-                         </div>
-                     </div>
-                 </div>
-                 <div class="col-xl-4 col-md-6 col-sm-12">
-                     <div class="card" style="height: 440px;">
-                         <div class="card-body">
-                             <div class="card-block">
-                                 <h4 class="card-title">List Group</h4>
-                                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                             </div>
-                             <ul class="list-group list-group-flush">
-                                 <li class="list-group-item">
-                                     <span class="tag tag-default tag-pill bg-primary float-xs-right">4</span> Cras justo odio
-                                 </li>
-                                 <li class="list-group-item">
-                                     <span class="tag tag-default tag-pill bg-info float-xs-right">2</span> Dapibus ac facilisis in
-                                 </li>
-                                 <li class="list-group-item">
-                                     <span class="tag tag-default tag-pill bg-warning float-xs-right">1</span> Morbi leo risus
-                                 </li>
-                                 <li class="list-group-item">
-                                     <span class="tag tag-default tag-pill bg-success float-xs-right">3</span> Porta ac consectetur ac
-                                 </li>
-                                 <li class="list-group-item">
-                                     <span class="tag tag-default tag-pill bg-danger float-xs-right">8</span> Vestibulum at eros
-                                 </li>
-                             </ul>
-                             <div class="card-block">
-                                 <a href="#" class="card-link">Card link</a>
-                                 <a href="#" class="card-link">Another link</a>
-                             </div>
-                         </div>
-                     </div>
-                 </div>
-                 <div class="col-xl-4 col-md-12 col-sm-12">
-                     <div class="card" style="height: 440px;">
-                         <div class="card-body">
-                             <div class="card-block">
-                                 <h4 class="card-title">Carousel</h4>
-                                 <h6 class="card-subtitle text-muted">Support card subtitle</h6>
-                             </div>
-                             <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-                                 <ol class="carousel-indicators">
-                                     <li data-target="#carousel-example-generic" data-slide-to="0" class=""></li>
-                                     <li data-target="#carousel-example-generic" data-slide-to="1" class="active"></li>
-                                     <li data-target="#carousel-example-generic" data-slide-to="2" class=""></li>
-                                 </ol>
-                                 <div class="carousel-inner" role="listbox">
-                                     <div class="carousel-item">
-                                         <img src="app-assets/images/carousel/02.jpg" alt="First slide">
-                                     </div>
-                                     <div class="carousel-item active">
-                                         <img src="app-assets/images/carousel/03.jpg" alt="Second slide">
-                                     </div>
-                                     <div class="carousel-item">
-                                         <img src="app-assets/images/carousel/01.jpg" alt="Third slide">
-                                     </div>
-                                 </div>
-                                 <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-                                     <span class="icon-prev" aria-hidden="true"></span>
-                                     <span class="sr-only">Previous</span>
-                                 </a>
-                                 <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-                                     <span class="icon-next" aria-hidden="true"></span>
-                                     <span class="sr-only">Next</span>
-                                 </a>
-                             </div>
-                             <div class="card-block">
-                                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                             </div>
-                         </div>
-                     </div>
-                 </div>
-             </div>-->
+
+            <div class="row">
+
+                <div class="col-xs-6">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="font-medium-5 blue-grey text-bold-300">Query Request Gender Wise</h4>
+                            <h6 class="font-small-2 text-bold-100 text-muted">Records of last 30 minutes</h6>
+                            <a class="heading-elements-toggle"><i class="icon-ellipsis font-medium-3"></i></a>
+                            <div class="heading-elements">
+                                <ul class="list-inline mb-0">
+                                    <li><a data-action="collapse"><i class="icon-minus4"></i></a></li>
+                                    <li><a data-action="reload"><i class="icon-reload"></i></a></li>
+                                    <li><a data-action="expand"><i class="icon-expand2"></i></a></li>
+                                    <li><a data-action="close"><i class="icon-cross2"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="card-body collapse in">
+                            <div class="card-block">
+                                <div id="container1" class="height-450"></div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="col-xs-6">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="font-medium-5 blue-grey text-bold-300">Query Request Gender Wise</h4>
+                            <h6 class="font-small-2 text-bold-100 text-muted">Records of last 30 minutes</h6>
+                            <a class="heading-elements-toggle"><i class="icon-ellipsis font-medium-3"></i></a>
+                            <div class="heading-elements">
+                                <ul class="list-inline mb-0">
+                                    <li><a data-action="collapse"><i class="icon-minus4"></i></a></li>
+                                    <li><a data-action="reload"><i class="icon-reload"></i></a></li>
+                                    <li><a data-action="expand"><i class="icon-expand2"></i></a></li>
+                                    <li><a data-action="close"><i class="icon-cross2"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="card-body collapse in">
+                            <div class="card-block">
+                                <div id="container4" class="height-450"></div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row">
+
+                <div class="col-xs-6">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="font-medium-5 blue-grey text-bold-300">Query Request Category Wise</h4>
+                            <h6 class="font-small-2 text-bold-100 text-muted">Records of last 30 minutes</h6>
+                            <a class="heading-elements-toggle"><i class="icon-ellipsis font-medium-3"></i></a>
+                            <div class="heading-elements">
+                                <ul class="list-inline mb-0">
+                                    <li><a data-action="collapse"><i class="icon-minus4"></i></a></li>
+                                    <li><a data-action="reload"><i class="icon-reload"></i></a></li>
+                                    <li><a data-action="expand"><i class="icon-expand2"></i></a></li>
+                                    <li><a data-action="close"><i class="icon-cross2"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="card-body collapse in">
+                            <div class="card-block">
+                                <div id="container3" class="height-450"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xs-6">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="font-medium-5 blue-grey text-bold-300">Query Request Category Wise</h4>
+                            <h6 class="font-small-2 text-bold-100 text-muted">Records of last 30 minutes</h6>
+                            <a class="heading-elements-toggle"><i class="icon-ellipsis font-medium-3"></i></a>
+                            <div class="heading-elements">
+                                <ul class="list-inline mb-0">
+                                    <li><a data-action="collapse"><i class="icon-minus4"></i></a></li>
+                                    <li><a data-action="reload"><i class="icon-reload"></i></a></li>
+                                    <li><a data-action="expand"><i class="icon-expand2"></i></a></li>
+                                    <li><a data-action="close"><i class="icon-cross2"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="card-body collapse in">
+                            <div class="card-block">
+                                <div id="container5" class="height-450"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
 
         </div>
+
+
     </div>
+
 </div>
 <!-- ////////////////////////////////////////////////////////////////////////////-->
 
@@ -572,6 +377,8 @@
 <script src="app-assets/js/core/libraries/jquery.min.js" type="text/javascript"></script>
 <script src="app-assets/vendors/js/ui/tether.min.js" type="text/javascript"></script>
 <script src="app-assets/js/core/libraries/bootstrap.min.js" type="text/javascript"></script>
+<script src="app-assets/vendors/js/moment/moment.js" type="text/javascript"></script>
+<script src="app-assets/vendors/js/datePicker/bootstrap-datepicker.js" type="text/javascript"></script>
 <script src="app-assets/vendors/js/ui/perfect-scrollbar.jquery.min.js" type="text/javascript"></script>
 <script src="app-assets/vendors/js/ui/unison.min.js" type="text/javascript"></script>
 <script src="app-assets/vendors/js/ui/blockUI.min.js" type="text/javascript"></script>
@@ -593,18 +400,455 @@
 <script src="app-assets/js/core/app.js" type="text/javascript"></script>
 <!-- END ROBUST JS-->
 <!-- BEGIN PAGE LEVEL JS-->
-<script src="app-assets/js/scripts/pages/dashboard-lite.js" type="text/javascript"></script>
-<!-- END PAGE LEVEL JS-->
+<!--<script src="app-assets/js/scripts/pages/dashboard-lite.js" type="text/javascript"></script>-->
 
-<script src="app-assets/js/scripts/charts/flot/line/realtime.js" type="text/javascript"></script>
-<script src="app-assets/js/scripts/charts/chartjs/line/line-area.js" type="text/javascript"></script>
+<!-- END PAGE LEVEL JS-->
+<!-- BEGIN PAGE LEVEL JS-->
+
+
+<!--<script src="http://code.highcharts.com/highcharts.js"></script>-->
+<!--<script src="http://code.highcharts.com/maps/modules/map.js"></script>-->
+<!--<script src="http://code.highcharts.com/maps/modules/exporting.js"></script>-->
+<!--<script src="http://code.highcharts.com/mapdata/countries/in/in-all.js"></script>-->
+
+
+<script src="app-assets/vendors/js/highcharts/highcharts.js"></script>
+
+<script src="app-assets/vendors/js/highmaps/map.js"></script>
+<script src="app-assets/vendors/js/highmaps/in-all.js"></script>
+<script src="app-assets/vendors/js/highcharts/drilldown.js"></script>
+<!-- END PAGE LEVEL JS-->
 
 <script type="text/javascript" language="JavaScript" src="assets/js/scripts.js"></script>
 <script>
     var updateTime = new Date();
-    document.getElementById("updatedTime").innerHTML = updateTime;
+    document.getElementById("updatedTime").innerHTML =  moment(updateTime,'MM/DD/YYYY').format('DD-MM-YYYY');
+    $('.date-picker').datepicker({
+        format: "dd/mm/yyyy",
+        todayBtn: "linked",
+        clearBtn: true,
+        autoclose: true,
+        todayHighlight: true
+    });
 </script>
 
 
+<script>
+    // Prepare demo data
+    // Data is joined to map using value of 'hc-key' property by default.
+    // See API docs for 'joinBy' for more info on linking data and map.
+    var data = [
+        ['in-py', 5432],
+        ['in-ld', 1432],
+        ['in-wb', 2352],
+        ['in-or', 3325],
+        ['in-br', 2325],
+        ['in-sk', 3342],
+        ['in-ct', 2352],
+        ['in-tn', 2352],
+        ['in-mp', 2324],
+        ['in-2984', 3932],
+        ['in-ga', 1032],
+        ['in-nl', 1132],
+        ['in-mn', 1232],
+        ['in-ar', 1332],
+        ['in-mz', 1432],
+        ['in-tr', 1532],
+        ['in-3464', 1632],
+        ['in-dl', 1732],
+        ['in-hr', 1832],
+        ['in-ch', 1932],
+        ['in-hp', 2032],
+        ['in-jk', 2132],
+        ['in-kl', 2232],
+        ['in-ka', 2332],
+        ['in-dn', 2432],
+        ['in-mh', 2532],
+        ['in-as', 2632],
+        ['in-ap', 2732],
+        ['in-ml', 2832],
+        ['in-pb', 2932],
+        ['in-rj', 3032],
+        ['in-up', 3132],
+        ['in-ut', 3232],
+        ['in-jh', 3323]
+    ];
+
+    // Create the chart
+    Highcharts.mapChart('container', {
+        chart: {
+            map: 'countries/in/in-all'
+        },
+
+        title: {
+            enabled: false,
+            text: null
+        },
+
+        subtitle: {
+            enabled: false,
+            text: null
+        },
+
+        mapNavigation: {
+            enabled: true,
+            buttonOptions: {
+                verticalAlign: 'bottom'
+            }
+        },
+
+        colorAxis: {
+            min: 0
+        },
+        credits:{
+            enabled: false
+        },
+        exporting:{
+            enabled: false
+        },
+        series: [{
+            data: data,
+            name: 'Random data',
+            states: {
+                hover: {
+                    color: '#BADA55'
+                }
+            },
+            dataLabels: {
+                enabled: true,
+                format: '{point.name}'
+            }
+        }]
+    });
+
+</script>
+
+<script>
+    Highcharts.chart('container1', {
+        chart: {
+            plotBackgroundColor: null,
+            plotBorderWidth: 0,
+            plotShadow: false
+        },
+        title: {
+            text: null
+        },
+        tooltip: {
+            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+        },
+        credits:{
+            enabled: false
+        },
+        colors: ["#673AB7", "#00BCD4"],
+        plotOptions: {
+            pie: {
+                dataLabels: {
+                    enabled: false,
+                    distance: 0,
+                    style: {
+                        fontWeight: 'bold',
+                        color: '#607D8B'
+                    }
+                },
+                showInLegend: true
+            }
+        },
+        legend: {
+            enabled: true,
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'middle',
+            labelFormatter: function() {
+                return this.name + ' ' + parseFloat(this.percentage).toFixed(1) + '%';
+            }
+        },
+        series: [{
+            type: 'pie',
+            name: 'Browser share',
+            innerSize: '35%',
+            data: [
+                ['Male',   32094874],
+                ['Female',       23184736]
+            ]
+        }]
+    });
+</script>
+
+<script>
+    var dataObj = [];
+    var category = ["Arts & Entertainment","Automotive","Business","Careers","Education","Family & Parenting","Health & Fitness","Food & Drink","Hobbies & Interests","Home & Garden","Law,Government,& Politics","News","Personal Finance","Society","Science","Pets","Sports","Style & Fashion","Technology & Computing","Travel","Real Estate","Shopping","Religion & Spirituality","Uncategorized","Non-Standard Content","Illegal Content"];
+    var data = [120,102,212,312,192,120,152,162,132,124,126,142,152,182,126,172,142,212,192,512,612,122,112,172,132,142];
+
+    console.log(data.length);
+    for (var i = 0; i < category.length; i++) {
+        dataObj.push([category[i], data[i]]);
+    }
+
+
+    Highcharts.chart('container3', {
+        chart: {
+            plotBackgroundColor: null,
+            plotBorderWidth: 0,
+            plotShadow: false
+        },
+        title: {
+            text: null
+        },
+        tooltip: {
+            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+        },
+        credits:{
+            enabled: false
+        },
+        colors :['#EF5350','#7E57C2','#26A69A','#FFEE58','#8D6E63','#EC407A','#5C6BC0','#D4E157','#FF7043','#78909C','#9CCC65','#FFCA28','#29B6F6','#AB47BC','#FFA726','#66BB6A','#29B6F6','#C62828','#26C6DA','#2E7D32','#BDBDBD','#4527A0','#9E9D24','#F9A825','#4E342E','#37474F','#283593','#00695C'],
+        plotOptions: {
+            pie: {
+                dataLabels: {
+                    enabled: false,
+                    distance: 0,
+                    style: {
+                        fontWeight: 'bold',
+                        color: '#607D8B'
+                    }
+                }
+                ,
+                showInLegend: true
+            }
+        },
+        legend: {
+            enabled: true,
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'middle',
+            labelFormatter: function() {
+                return this.name + ' ' + parseFloat(this.percentage).toFixed(1) + '%';
+            }
+        },
+        series: [{
+            type: 'pie',
+            name: 'Browser share',
+            innerSize: '35%',
+            data: dataObj
+        }]
+    });
+</script>
+
+<script>
+
+    var dataObj = [];
+    var category = ["Aircel", "Airtel", "BSNL","Docomo", "Idea", "MTNL", "MTS", "Reliance", "Tata", "Telenor", "Vodafone", 'Reliance Jio'];
+    var data = [120,102,212,312,192,120,152,162,132,124,126,120];
+
+    console.log(data.length);
+    for (var i = 0; i < category.length; i++) {
+        dataObj.push([category[i], data[i]]);
+    }
+    // Create the chart
+    Highcharts.chart('container2', {
+        chart: {
+            type: 'pie'
+        },
+        title: {
+            text: null
+        },
+        subtitle: {
+            text: null
+        },
+        plotOptions: {
+            pie: {
+                dataLabels: {
+                    enabled: false
+                },
+                showInLegend: true
+            }
+        },
+        legend: {
+            enabled: true,
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'middle',
+            labelFormatter: function() {
+                return this.name + ' ' + parseFloat(this.percentage).toFixed(2) + '%';
+            }
+        },
+        credits : {
+            enabled:false
+        },
+
+        tooltip: {
+            headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
+            pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.percentage:.2f}%</b> of total<br/>'
+        },
+        colors : ['#EF5350','#7E57C2','#26A69A','#FFEE58','#8D6E63','#EC407A','#5C6BC0','#D4E157','#FF7043','#78909C','#9CCC65','#FFCA28','#29B6F6','#AB47BC','#EF5350','#EF5350','#EF5350','#EF5350','#EF5350','#EF5350','#EF5350','#EF5350','#EF5350','#EF5350','#EF5350','#EF5350','#EF5350','#EF5350','#EF5350','#EF5350','#EF5350','#EF5350','#EF5350','#EF5350','#EF5350','#EF5350','#EF5350'],
+        series: [{
+            name: 'User Carrier Information',
+            colorByPoint: true,
+            data: [{
+                name: 'Known',
+                y: 32453212,
+                drilldown: 'Known'
+            }, {
+                name: 'N/A',
+                y: 11234321,
+                drilldown: null
+            }]
+        }],
+        drilldown: {
+            series: [{
+                name: 'Operator',
+                id: 'Known',
+                data: dataObj
+            }]
+        }
+    });
+</script>
+
+<script>
+
+    var dataObj = [];
+    var category = ["Aircel", "Airtel", "BSNL","Docomo", "Idea", "MTNL", "MTS", "Reliance", "Tata", "Telenor", "Vodafone", 'Reliance Jio'];
+    var data = [120,102,212,312,192,120,152,162,132,124,126,120];
+
+    console.log(data.length);
+    for (var i = 0; i < category.length; i++) {
+        dataObj.push([category[i], data[i]]);
+    }
+    // Create the chart
+    Highcharts.chart('container4', {
+        chart: {
+            type: 'pie'
+        },
+        title: {
+            text: null
+        },
+        subtitle: {
+            text: null
+        },
+        plotOptions: {
+            pie: {
+                dataLabels: {
+                    enabled: false
+                },
+                showInLegend: true
+            }
+        },
+        legend: {
+            enabled: true,
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'middle',
+            labelFormatter: function() {
+                return this.name + ' ' + parseFloat(this.percentage).toFixed(2) + '%';
+            }
+        },
+        credits : {
+            enabled:false
+        },
+
+        tooltip: {
+            headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
+            pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.percentage:.2f}%</b> of total<br/>'
+        },
+        colors : ['#D4E157','#FF7043','#78909C','#9CCC65','#FFCA28','#29B6F6','#AB47BC','#EF5350','#EF5350','#EF5350','#EF5350','#EF5350','#EF5350','#EF5350','#EF5350','#EF5350','#EF5350','#EF5350','#EF5350','#EF5350','#EF5350','#EF5350','#EF5350','#EF5350','#EF5350','#EF5350','#EF5350','#EF5350','#EF5350','#EF5350','#EF5350','#7E57C2','#26A69A','#FFEE58','#8D6E63','#EC407A','#5C6BC0'],
+        series: [{
+            name: 'User Carrier Information',
+            colorByPoint: true,
+            innerSize: '35%',
+            data: [{
+                name: 'Known',
+                y: 32453212,
+                drilldown: 'Known'
+            }, {
+                name: 'N/A',
+                y: 11234321,
+                drilldown: null
+            }]
+        }],
+        drilldown: {
+            series: [{
+                name: 'Operator',
+                id: 'Known',
+                innerSize: '35%',
+                data: dataObj
+            }]
+        }
+    });
+</script>
+
+<script>
+
+    var dataObj = [];
+    var category = ["Aircel", "Airtel", "BSNL","Docomo", "Idea", "MTNL", "MTS", "Reliance", "Tata", "Telenor", "Vodafone", 'Reliance Jio'];
+    var data = [120,102,212,312,192,120,152,162,132,124,126,120];
+
+    console.log(data.length);
+    for (var i = 0; i < category.length; i++) {
+        dataObj.push([category[i], data[i]]);
+    }
+    // Create the chart
+    Highcharts.chart('container5', {
+        chart: {
+            type: 'pie'
+        },
+        title: {
+            text: null
+        },
+        subtitle: {
+            text: null
+        },
+        plotOptions: {
+            pie: {
+                dataLabels: {
+                    enabled: false
+                },
+                showInLegend: true
+            }
+        },
+        legend: {
+            enabled: true,
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'middle',
+            labelFormatter: function() {
+                return this.name + ' ' + parseFloat(this.percentage).toFixed(2) + '%';
+            }
+        },
+        credits : {
+            enabled:false
+        },
+
+        tooltip: {
+            headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
+            pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.percentage:.2f}%</b> of total<br/>'
+        },
+        colors : ['#EC407A','#5C6BC0','#D4E157','#FF7043','#78909C','#9CCC65','#FFCA28','#29B6F6','#AB47BC','#EF5350','#EF5350','#EF5350','#EF5350','#EF5350','#EF5350','#EF5350','#EF5350','#EF5350','#EF5350','#EF5350','#EF5350','#EF5350','#EF5350','#EF5350','#EF5350','#EF5350','#EF5350','#EF5350','#EF5350','#EF5350','#EF5350','#EF5350','#EF5350','#7E57C2','#26A69A','#FFEE58','#8D6E63'],
+        series: [{
+            name: 'User Carrier Information',
+            colorByPoint: true,
+            data: [{
+                name: 'Known',
+                y: 32453212,
+                drilldown: 'Known'
+            }, {
+                name: 'N/A',
+                y: 11234321,
+                drilldown: null
+            }]
+        }],
+        drilldown: {
+            series: [{
+                name: 'Operator',
+                id: 'Known',
+                data: dataObj
+            }]
+        }
+    });
+</script>
+
 </body>
 </html>
+
+
+
+<!--adhalt.com-->
+<!--adssalt.com-->

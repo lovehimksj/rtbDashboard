@@ -1884,6 +1884,9 @@ select[multiple='multiple'] {
 
 select.form-control:not([size]):not([multiple]),
 input.form-control {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
   /*--------------------------
         Sizing
         --------------------------*/ }

@@ -20,6 +20,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <!-- BEGIN VENDOR CSS-->
     <link rel="stylesheet" type="text/css" href="app-assets/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="app-assets/vendors/css/pickers/datepicker/bootstrap-datepicker.css">
     <!-- font icons-->
     <link rel="stylesheet" type="text/css" href="app-assets/fonts/icomoon.css">
     <link rel="stylesheet" type="text/css" href="app-assets/fonts/flag-icon-css/css/flag-icon.min.css">
@@ -80,10 +81,10 @@
         <ul id="main-menu-navigation" data-menu="menu-navigation" class="navigation navigation-main">
             <li class=" nav-item"><a href="index.html"><i class="icon-home3"></i><span data-i18n="nav.dash.main" class="menu-title">Dashboard</span></a>
                 <ul class="menu-content">
-                    <li class="active"><a href="dashboard.html" data-i18n="nav.dash.main" class="menu-item">Live Traffic</a></li>
-                    <li class=""><a href="bidRequest.html" data-i18n="nav.dash.main" class="menu-item">Bid Request</a></li>
-                    <li class=""><a href="sspWiseTraffic.html" data-i18n="nav.dash.main" class="menu-item">SSP Wise Traffic</a></li>
-                    <li class=""><a href="uniqueUser.html" data-i18n="nav.dash.main" class="menu-item">Unique User</a></li>
+                    <li><a href="dashboard.html" data-i18n="nav.dash.main" class="menu-item">Live Traffic</a></li>
+                    <li><a href="bidRequest.html" data-i18n="nav.dash.main" class="menu-item">Bid Request</a></li>
+                    <li class="active"><a href="sspWiseTraffic.html" data-i18n="nav.dash.main" class="menu-item">SSP Wise Traffic</a></li>
+                    <!--<li class=""><a href="uniqueUser.html" data-i18n="nav.dash.main" class="menu-item">Unique User</a></li>-->
                     <li class=""><a href="userPersona.html" data-i18n="nav.dash.main" class="menu-item">User Persona</a></li>
                 </ul>
             </li>
@@ -113,7 +114,7 @@
 
         <div class="content-header row">
             <div class="content-header-left col-md-6 col-xs-12 mb-1">
-                <h6 class="content-header-title">Stats of last 30 min.</h6>
+                <h5 class="content-header-title">Historical Data of Bid Request of last month</h5>
             </div>
             <div class="content-header-right col-md-6 col-xs-12">
                 <h6 class="content-header-title text-lg-right"><small>Updated on <span id="updatedTime"></span></small></h6>
@@ -121,82 +122,62 @@
         </div>
 
         <div class="content-body">
-            <!--Bid stats for last 30 min-->
+            <!--date picker-->
+            <h5 class="font-small-2 text-muted">Select Date and </h5>
             <div class="row">
-                <div class="col-xl-3 col-lg-6 col-xs-12">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="card-block">
-                                <div class="media">
-                                    <div class="media-body text-xs-left">
-                                        <h3 class="deep-orange">100 M</h3>
-                                        <span>Bid Request</span>
-                                    </div>
-                                    <div class="media-right media-middle">
-                                        <i class="icon-hammer22 deep-orange font-large-2 float-xs-right"></i>
-                                    </div>
-                                </div>
-                            </div>
+
+                <div class='col-sm-3'>
+                    <div class="form-group">
+                        <div class='input-group date' id=''>
+                            <span class="input-group-addon" id="Startdate-addon">From Date : </span>
+                            <input type='text' class="form-control date-picker" id="startDate"/>
+                            <span class="input-group-addon">
+                                <span class="icon-calendar-plus-o"></span>
+                            </span>
                         </div>
                     </div>
                 </div>
 
-                <div class="col-xl-3 col-lg-6 col-xs-12">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="card-block">
-                                <div class="media">
-                                    <div class="media-body text-xs-left">
-                                        <h3 class="cyan">10 M</h3>
-                                        <span>Bid Win</span>
-                                    </div>
-                                    <div class="media-right media-middle">
-                                        <i class="icon-target2 cyan font-large-2 float-xs-right"></i>
-                                    </div>
-                                </div>
-                            </div>
+                <div class='col-sm-3'>
+                    <div class="form-group">
+                        <div class='input-group date'>
+                            <span class="input-group-addon" id="addon3">To Date : </span>
+                            <input type='text' class="form-control date-picker" id="endDate"/>
+                            <span class="input-group-addon">
+                                <span class="icon-calendar-plus-o"></span>
+                            </span>
                         </div>
                     </div>
                 </div>
 
-                <div class="col-xl-3 col-lg-6 col-xs-12">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="card-block">
-                                <div class="media">
-                                    <div class="media-body text-xs-left">
-                                        <h3 class="red">$ 120.00</h3>
-                                        <span>Invested</span>
-                                    </div>
-                                    <div class="media-right media-middle">
-                                        <i class="icon-money1 red font-large-2 float-xs-right"></i>
-                                    </div>
-                                </div>
-                            </div>
+                <div class='col-sm-3'>
+                    <div class="form-group">
+                        <div class='input-group'>
+                            <span class="input-group-addon" id="Todate-addon">Select SSP : </span>
+                            <select class="form-control" name="" id="selectSsp">
+                                <option value="0" selected>SSP</option>
+                                <option value="1">SSP 1</option>
+                                <option value="2">SSP 2</option>
+                                <option value="3">SSP 3</option>
+                                <option value="4">SSP 4</option>
+                            </select>
+                            <span class="input-group-addon">
+                                <span class="icon-arrow-down"></span>
+                            </span>
                         </div>
                     </div>
                 </div>
 
-                <div class="col-xl-3 col-lg-6 col-xs-12">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="card-block">
-                                <div class="media">
-                                    <div class="media-body text-xs-left">
-                                        <h3 class="indigo">$ 120.00</h3>
-                                        <span>Revenue</span>
-                                    </div>
-                                    <div class="media-right media-middle">
-                                        <i class="icon-moneypig indigo font-large-2 float-xs-right"></i>
-                                    </div>
-                                </div>
-                            </div>
+
+                <div class='col-sm-3'>
+                    <div class="form-group">
+                        <div class='input-group'>
+                            <button type="button" class="btn mr-1 mb-1 btn-blue btn-darken-4">Submit</button>
                         </div>
                     </div>
                 </div>
 
             </div>
-            <!--/ stats -->
 
             <!--/ query per second charts for last 30 min live traffic -->
             <div class="row">
@@ -204,12 +185,11 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="card-block">
-                                <h4 class="font-medium-5 blue-grey text-bold-300">Query per second</h4>
-                                <h6 class="card-subtitle font-medium-2 text-bold-200 text-muted">Records of last 30 minutes</h6>
+                                <h4 class="font-medium-5 blue-grey text-bold-300">Query per second for SSP Name</h4>
+                                <h6 class="font-small-2 text-bold-100 text-muted">Records from this date to that date</h6>
                             </div>
-                            <div class="chartjs height-350">
-                                <div id="realtime" class="height-350"></div>
-                                <!--<canvas id="line-stacked-area" height="250"></canvas>-->
+                            <div class="chartjs height-500">
+                                <canvas id="totalQuery"></canvas>
                             </div>
                         </div>
 
@@ -218,22 +198,18 @@
                                 <div class="col-xs-3 text-xs-center">
                                     <span class="text-muted text-truncate">Avg QPS</span>
                                     <h2 class="block font-weight-normal">30 M</h2>
-                                    <progress class="progress progress-xs mt-2 progress-success" value="100" max="100"></progress>
                                 </div>
                                 <div class="col-xs-3 text-xs-center">
                                     <span class="text-muted text-truncate">Request Served</span>
                                     <h2 class="block font-weight-normal">20 M</h2>
-                                    <progress class="progress progress-xs mt-2 progress-success" value="40" max="100"></progress>
                                 </div>
                                 <div class="col-xs-3 text-xs-center">
                                     <span class="text-muted text-truncate">Bid Requested</span>
                                     <h2 class="block font-weight-normal">18 M</h2>
-                                    <progress class="progress progress-xs mt-2 progress-success" value="60" max="100"></progress>
                                 </div>
                                 <div class="col-xs-3 text-xs-center">
                                     <span class="text-muted text-truncate">Bid Win</span>
                                     <h2 class="block font-weight-normal">5 M</h2>
-                                    <progress class="progress progress-xs mt-2 progress-success" value="90" max="100"></progress>
                                 </div>
                             </div>
                         </div>
@@ -243,196 +219,82 @@
             </div>
             <!--/ project charts -->
             <!-- Recent Bid Win Table -->
-            <div class="row match-height">
-                <div class="col-xl-4 col-lg-12">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="media">
-                                <div class="p-2 text-xs-center bg-deep-orange media-left media-middle">
-                                    <i class="icon-bullhorn font-large-2 white"></i>
-                                </div>
-                                <div class="p-2 media-body">
-                                    <h5 class="deep-orange"># Campaign</h5>
-                                    <h5 class="text-bold-400">1,22,356</h5>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
 
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="media">
-                                <div class="p-2 media-body text-xs-left">
-                                    <h5 class="teal"># Serving Campaign</h5>
-                                    <h5 class="text-bold-400">22,356</h5>
-                                </div>
-                                <div class="p-2 text-xs-center bg-teal media-right media-middle">
-                                    <i class="icon-tachometer font-large-2 white"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
 
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="earning-chart position-relative">
-                                <div class="chart-title position-absolute mt-2 ml-2">
-                                    <h1 class="display-4">$9865</h1>
-                                    <span class="text-muted">Total Earning</span>
-                                </div>
-                                <canvas id="earning-chart" class="height-450 block"></canvas>
-                                <div class="chart-stats position-absolute position-bottom-0 position-right-0 mb-2 mr-3">
-                                    <a href="javascript:void(0)" class="btn bg-cyan mr-1 white">Statistics <i class="icon-stats-bars"></i></a><span class="text-muted">for the <a href="javascript:void(0)" class="primary darken-2">Last 30 Min.</a></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--<div class="card">
-                        <div class="card-body">
-                            <div class="media">
-                                <div class="p-2 text-xs-center bg-cyan media-left media-middle">
-                                    <i class="icon-camera7 font-large-2 white"></i>
-                                </div>
-                                <div class="p-2 media-body">
-                                    <h5>New Products</h5>
-                                    <h5 class="text-bold-400">28</h5>
-                                </div>
-                            </div>
-                        </div>
-                    </div>-->
-                </div>
-
-                <div class="col-xl-8 col-lg-12">
+            <div class="row">
+                <div class="col-xs-6">
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="font-medium-5 blue-grey text-bold-300">Recent Bid Wins campaign wise</h4>
+                            <h4 class="font-medium-5 blue-grey text-bold-300">Bid Request Source Wise</h4>
+                            <h6 class="font-small-2 text-bold-100 text-muted">Records from this date to that date</h6>
+                            <a class="heading-elements-toggle"><i class="icon-ellipsis font-medium-3"></i></a>
                             <div class="heading-elements">
                                 <ul class="list-inline mb-0">
+                                    <li><a data-action="collapse"><i class="icon-minus4"></i></a></li>
                                     <li><a data-action="reload"><i class="icon-reload"></i></a></li>
                                     <li><a data-action="expand"><i class="icon-expand2"></i></a></li>
+                                    <li><a data-action="close"><i class="icon-cross2"></i></a></li>
                                 </ul>
                             </div>
                         </div>
-                        <div class="card-body">
-                            <div class="table-responsive">
-                                <table class="table table-hover mb-0">
-                                    <thead>
-                                    <tr>
-                                        <th class="font-small-3 indigo darken-3 text-bold-400">ID#</th>
-                                        <th class="font-small-3 indigo darken-3 text-bold-400">Campaign Name</th>
-                                        <th class="font-small-3 indigo darken-3 text-bold-400">Creative Type</th>
-                                        <th class="font-small-3 indigo darken-3 text-bold-400">SSP Name</th>
-                                        <th class="font-small-3 indigo darken-3 text-bold-400">Rate</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate"><a class="blue-grey" href="javascript:void(0)">INV-001001</a></td>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate">Lorem Ipsum dollar ipsum</td>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate">Banner (cc_id)</td>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate">SSP 1</td>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate">$ 0.010</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate"><a class="blue-grey" href="javascript:void(0)">INV-001001</a></td>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate">Lorem Ipsum dollar ipsum</td>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate">Banner (cc_id)</td>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate">SSP 1</td>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate">$ 0.010</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate"><a class="blue-grey" href="javascript:void(0)">INV-001001</a></td>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate">Lorem Ipsum dollar ipsum</td>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate">Banner (cc_id)</td>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate">SSP 1</td>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate">$ 0.010</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate"><a class="blue-grey" href="javascript:void(0)">INV-001001</a></td>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate">Lorem Ipsum dollar ipsum</td>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate">Banner (cc_id)</td>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate">SSP 1</td>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate">$ 0.010</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate"><a class="blue-grey" href="javascript:void(0)">INV-001001</a></td>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate">Lorem Ipsum dollar ipsum</td>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate">Banner (cc_id)</td>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate">SSP 1</td>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate">$ 0.010</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate"><a class="blue-grey" href="javascript:void(0)">INV-001001</a></td>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate">Lorem Ipsum dollar ipsum</td>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate">Banner (cc_id)</td>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate">SSP 1</td>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate">$ 0.010</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate"><a class="blue-grey" href="javascript:void(0)">INV-001001</a></td>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate">Lorem Ipsum dollar ipsum</td>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate">Banner (cc_id)</td>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate">SSP 1</td>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate">$ 0.010</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate"><a class="blue-grey" href="javascript:void(0)">INV-001001</a></td>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate">Lorem Ipsum dollar ipsum</td>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate">Banner (cc_id)</td>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate">SSP 1</td>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate">$ 0.010</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate"><a class="blue-grey" href="javascript:void(0)">INV-001001</a></td>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate">Lorem Ipsum dollar ipsum</td>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate">Banner (cc_id)</td>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate">SSP 1</td>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate">$ 0.010</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate"><a class="blue-grey" href="javascript:void(0)">INV-001001</a></td>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate">Lorem Ipsum dollar ipsum</td>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate">Banner (cc_id)</td>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate">SSP 1</td>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate">$ 0.010</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate"><a class="blue-grey" href="javascript:void(0)">INV-001001</a></td>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate">Lorem Ipsum dollar ipsum</td>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate">Banner (cc_id)</td>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate">SSP 1</td>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate">$ 0.010</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate"><a class="blue-grey" href="javascript:void(0)">INV-001001</a></td>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate">Lorem Ipsum dollar ipsum</td>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate">Banner (cc_id)</td>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate">SSP 1</td>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate">$ 0.010</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate"><a class="blue-grey" href="javascript:void(0)">INV-001001</a></td>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate">Lorem Ipsum dollar ipsum</td>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate">Banner (cc_id)</td>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate">SSP 1</td>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate">$ 0.010</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate"><a class="blue-grey" href="javascript:void(0)">INV-001001</a></td>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate">Lorem Ipsum dollar ipsum</td>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate">Banner (cc_id)</td>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate">SSP 1</td>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate">$ 0.010</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate"><a class="blue-grey" href="javascript:void(0)">INV-001001</a></td>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate">Lorem Ipsum dollar ipsum</td>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate">Banner (cc_id)</td>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate">SSP 1</td>
-                                        <td class="font-small-2 grey text-bold-300 text-truncate">$ 0.010</td>
-                                    </tr>
-                                    </tbody>
-                                </table>
+                        <div class="card-body collapse in">
+                            <div class="card-block chartjs">
+                                <canvas id="column-stacked2" height="400"></canvas>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <div class="row">
+                                <div class="col-xs-6 text-xs-center">
+                                    <span class="text-muted text-truncate">App</span>
+                                    <h2 class="block font-weight-normal">30 M</h2>
+                                </div>
+                                <div class="col-xs-6 text-xs-center">
+                                    <span class="text-muted text-truncate">Web</span>
+                                    <h2 class="block font-weight-normal">20 M</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xs-6">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="font-medium-5 blue-grey text-bold-300">Bid Request Creative Wise</h4>
+                            <h6 class="font-small-2 text-bold-100 text-muted">Records from this date to that date</h6>
+                            <a class="heading-elements-toggle"><i class="icon-ellipsis font-medium-3"></i></a>
+                            <div class="heading-elements">
+                                <ul class="list-inline mb-0">
+                                    <li><a data-action="collapse"><i class="icon-minus4"></i></a></li>
+                                    <li><a data-action="reload"><i class="icon-reload"></i></a></li>
+                                    <li><a data-action="expand"><i class="icon-expand2"></i></a></li>
+                                    <li><a data-action="close"><i class="icon-cross2"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="card-body collapse in">
+                            <div class="card-block chartjs">
+                                <canvas id="column-stacked3" height="400"></canvas>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <div class="row">
+                                <div class="col-xs-3 text-xs-center">
+                                    <span class="text-muted text-truncate">Banner</span>
+                                    <h2 class="block font-weight-normal">30 M</h2>
+                                </div>
+                                <div class="col-xs-3 text-xs-center">
+                                    <span class="text-muted text-truncate">Rich Media</span>
+                                    <h2 class="block font-weight-normal">20 M</h2>
+                                </div>
+                                <div class="col-xs-3 text-xs-center">
+                                    <span class="text-muted text-truncate">Video</span>
+                                    <h2 class="block font-weight-normal">18 M</h2>
+                                </div>
+                                <div class="col-xs-3 text-xs-center">
+                                    <span class="text-muted text-truncate">Native</span>
+                                    <h2 class="block font-weight-normal">5 M</h2>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -443,112 +305,125 @@
                 <div class="col-xs-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="card-title">Query SSP Wise</h4>
+                            <h4 class="font-medium-5 blue-grey text-bold-300">Biding Analytics</h4>
+                            <h6 class="font-small-2 text-bold-100 text-muted">Records of last 30 minutes</h6>
                             <a class="heading-elements-toggle"><i class="icon-ellipsis font-medium-3"></i></a>
                             <div class="heading-elements">
                                 <ul class="list-inline mb-0">
                                     <li><a data-action="collapse"><i class="icon-minus4"></i></a></li>
                                     <li><a data-action="reload"><i class="icon-reload"></i></a></li>
                                     <li><a data-action="expand"><i class="icon-expand2"></i></a></li>
+                                    <li><a data-action="close"><i class="icon-cross2"></i></a></li>
                                 </ul>
                             </div>
                         </div>
                         <div class="card-body collapse in">
-                            <div class="card-block chartjs">
-                                <canvas id="area-chart"></canvas>
+                            <div class="card-block chartjs height-500">
+                                <canvas id="line-chart"></canvas>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <div class="row">
+                                <div class="col-xs-4 text-xs-center">
+                                    <span class="text-muted text-truncate">Avg QPS</span>
+                                    <h2 class="block font-weight-normal">30 M</h2>
+                                </div>
+                                <div class="col-xs-4 text-xs-center">
+                                    <span class="text-muted text-truncate">Request Served</span>
+                                    <h2 class="block font-weight-normal">20 M</h2>
+                                </div>
+                                <div class="col-xs-4 text-xs-center">
+                                    <span class="text-muted text-truncate">Bid Requested</span>
+                                    <h2 class="block font-weight-normal">18 M</h2>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
             <!-- Recent Bid Win Table -->
-            <!-- <div class="row match-height">
-                 <div class="col-xl-4 col-md-6 col-sm-12">
-                     <div class="card" style="height: 440px;">
-                         <div class="card-body">
-                             <img class="card-img-top img-fluid" src="app-assets/images/carousel/05.jpg" alt="Card image cap">
-                             <div class="card-block">
-                                 <h4 class="card-title">Basic</h4>
-                                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                 <a href="#" class="btn btn-outline-pink">Go somewhere</a>
-                             </div>
-                         </div>
-                     </div>
-                 </div>
-                 <div class="col-xl-4 col-md-6 col-sm-12">
-                     <div class="card" style="height: 440px;">
-                         <div class="card-body">
-                             <div class="card-block">
-                                 <h4 class="card-title">List Group</h4>
-                                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                             </div>
-                             <ul class="list-group list-group-flush">
-                                 <li class="list-group-item">
-                                     <span class="tag tag-default tag-pill bg-primary float-xs-right">4</span> Cras justo odio
-                                 </li>
-                                 <li class="list-group-item">
-                                     <span class="tag tag-default tag-pill bg-info float-xs-right">2</span> Dapibus ac facilisis in
-                                 </li>
-                                 <li class="list-group-item">
-                                     <span class="tag tag-default tag-pill bg-warning float-xs-right">1</span> Morbi leo risus
-                                 </li>
-                                 <li class="list-group-item">
-                                     <span class="tag tag-default tag-pill bg-success float-xs-right">3</span> Porta ac consectetur ac
-                                 </li>
-                                 <li class="list-group-item">
-                                     <span class="tag tag-default tag-pill bg-danger float-xs-right">8</span> Vestibulum at eros
-                                 </li>
-                             </ul>
-                             <div class="card-block">
-                                 <a href="#" class="card-link">Card link</a>
-                                 <a href="#" class="card-link">Another link</a>
-                             </div>
-                         </div>
-                     </div>
-                 </div>
-                 <div class="col-xl-4 col-md-12 col-sm-12">
-                     <div class="card" style="height: 440px;">
-                         <div class="card-body">
-                             <div class="card-block">
-                                 <h4 class="card-title">Carousel</h4>
-                                 <h6 class="card-subtitle text-muted">Support card subtitle</h6>
-                             </div>
-                             <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-                                 <ol class="carousel-indicators">
-                                     <li data-target="#carousel-example-generic" data-slide-to="0" class=""></li>
-                                     <li data-target="#carousel-example-generic" data-slide-to="1" class="active"></li>
-                                     <li data-target="#carousel-example-generic" data-slide-to="2" class=""></li>
-                                 </ol>
-                                 <div class="carousel-inner" role="listbox">
-                                     <div class="carousel-item">
-                                         <img src="app-assets/images/carousel/02.jpg" alt="First slide">
-                                     </div>
-                                     <div class="carousel-item active">
-                                         <img src="app-assets/images/carousel/03.jpg" alt="Second slide">
-                                     </div>
-                                     <div class="carousel-item">
-                                         <img src="app-assets/images/carousel/01.jpg" alt="Third slide">
-                                     </div>
-                                 </div>
-                                 <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-                                     <span class="icon-prev" aria-hidden="true"></span>
-                                     <span class="sr-only">Previous</span>
-                                 </a>
-                                 <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-                                     <span class="icon-next" aria-hidden="true"></span>
-                                     <span class="sr-only">Next</span>
-                                 </a>
-                             </div>
-                             <div class="card-block">
-                                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                             </div>
-                         </div>
-                     </div>
-                 </div>
-             </div>-->
+
+
+            <!-- World Map -->
+            <div class="row">
+
+                <div class="col-xs-6">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="font-medium-5 blue-grey text-bold-300">Query Request Location Wise</h4>
+                            <h6 class="font-small-2 text-bold-100 text-muted">Records of last 30 minutes</h6>
+                            <a class="heading-elements-toggle"><i class="icon-ellipsis font-medium-3"></i></a>
+                            <div class="heading-elements">
+                                <ul class="list-inline mb-0">
+                                    <li><a data-action="collapse"><i class="icon-minus4"></i></a></li>
+                                    <li><a data-action="reload"><i class="icon-reload"></i></a></li>
+                                    <li><a data-action="expand"><i class="icon-expand2"></i></a></li>
+                                    <li><a data-action="close"><i class="icon-cross2"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="card-body collapse in">
+                            <div class="card-block">
+                                <div id="container" class="height-800"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xs-6">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="font-medium-5 blue-grey text-bold-300">Query Request Gender Wise</h4>
+                            <h6 class="font-small-2 text-bold-100 text-muted">Records of last 30 minutes</h6>
+                            <a class="heading-elements-toggle"><i class="icon-ellipsis font-medium-3"></i></a>
+                            <div class="heading-elements">
+                                <ul class="list-inline mb-0">
+                                    <li><a data-action="collapse"><i class="icon-minus4"></i></a></li>
+                                    <li><a data-action="reload"><i class="icon-reload"></i></a></li>
+                                    <li><a data-action="expand"><i class="icon-expand2"></i></a></li>
+                                    <li><a data-action="close"><i class="icon-cross2"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="card-body collapse in">
+                            <div class="card-block">
+                                <div id="container1" class="height-300"></div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="col-xs-6">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="font-medium-5 blue-grey text-bold-300">Query Request Category Wise</h4>
+                            <h6 class="font-small-2 text-bold-100 text-muted">Records of last 30 minutes</h6>
+                            <a class="heading-elements-toggle"><i class="icon-ellipsis font-medium-3"></i></a>
+                            <div class="heading-elements">
+                                <ul class="list-inline mb-0">
+                                    <li><a data-action="collapse"><i class="icon-minus4"></i></a></li>
+                                    <li><a data-action="reload"><i class="icon-reload"></i></a></li>
+                                    <li><a data-action="expand"><i class="icon-expand2"></i></a></li>
+                                    <li><a data-action="close"><i class="icon-cross2"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="card-body collapse in">
+                            <div class="card-block">
+                                <div id="container3" class="height-300"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
 
         </div>
+
+
     </div>
+
 </div>
 <!-- ////////////////////////////////////////////////////////////////////////////-->
 
@@ -572,6 +447,8 @@
 <script src="app-assets/js/core/libraries/jquery.min.js" type="text/javascript"></script>
 <script src="app-assets/vendors/js/ui/tether.min.js" type="text/javascript"></script>
 <script src="app-assets/js/core/libraries/bootstrap.min.js" type="text/javascript"></script>
+<script src="app-assets/vendors/js/moment/moment.js" type="text/javascript"></script>
+<script src="app-assets/vendors/js/datePicker/bootstrap-datepicker.js" type="text/javascript"></script>
 <script src="app-assets/vendors/js/ui/perfect-scrollbar.jquery.min.js" type="text/javascript"></script>
 <script src="app-assets/vendors/js/ui/unison.min.js" type="text/javascript"></script>
 <script src="app-assets/vendors/js/ui/blockUI.min.js" type="text/javascript"></script>
@@ -593,18 +470,704 @@
 <script src="app-assets/js/core/app.js" type="text/javascript"></script>
 <!-- END ROBUST JS-->
 <!-- BEGIN PAGE LEVEL JS-->
-<script src="app-assets/js/scripts/pages/dashboard-lite.js" type="text/javascript"></script>
-<!-- END PAGE LEVEL JS-->
+<!--<script src="app-assets/js/scripts/pages/dashboard-lite.js" type="text/javascript"></script>-->
 
-<script src="app-assets/js/scripts/charts/flot/line/realtime.js" type="text/javascript"></script>
-<script src="app-assets/js/scripts/charts/chartjs/line/line-area.js" type="text/javascript"></script>
+<!-- END PAGE LEVEL JS-->
+<!-- BEGIN PAGE LEVEL JS-->
+
+
+<!--<script src="http://code.highcharts.com/highcharts.js"></script>-->
+<!--<script src="http://code.highcharts.com/maps/modules/map.js"></script>-->
+<!--<script src="http://code.highcharts.com/maps/modules/exporting.js"></script>-->
+<!--<script src="http://code.highcharts.com/mapdata/countries/in/in-all.js"></script>-->
+
+
+<script src="app-assets/vendors/js/highcharts/highcharts.js"></script>
+
+<script src="app-assets/vendors/js/highmaps/map.js"></script>
+<script src="app-assets/vendors/js/highmaps/in-all.js"></script>
+
+<!-- END PAGE LEVEL JS-->
 
 <script type="text/javascript" language="JavaScript" src="assets/js/scripts.js"></script>
 <script>
     var updateTime = new Date();
-    document.getElementById("updatedTime").innerHTML = updateTime;
+    document.getElementById("updatedTime").innerHTML =  moment(updateTime,'MM/DD/YYYY').format('DD-MM-YYYY');
+    $('.date-picker').datepicker({
+        format: "dd/mm/yyyy",
+        todayBtn: "linked",
+        clearBtn: true,
+        autoclose: true,
+        todayHighlight: true
+    });
 </script>
+
+<!--total query graph data-->
+<script>
+    var ctx3 = document.getElementById("totalQuery").getContext("2d");
+    var datapoints =  [120, 125, 105, 110, 110, 220, 220, 100, 110, 120, 230, 230, 180, 120, 125, 180, 120, 125, 105, 110, 170, 170, 200, 120, 220, 160, 260, 250, 230, 180];
+
+    var time = 30;
+    var labels = [];
+    var today = moment();
+    for (var i = 0; i < time; i++) {
+        labels.push(moment(today,'MM/DD/YYYY').add(i, 'day').format('DD/MM/YYYY'));
+
+
+    }
+    console.log(labels);
+    // Chart Options
+    var earningOptions = {
+        responsive: true,
+        maintainAspectRatio: false,
+        datasetStrokeWidth : 3,
+        pointDotStrokeWidth : 4,
+        tooltipFillColor: "rgba(0,0,0,0.8)",
+        legend: {
+            display: false,
+            position: 'bottom',
+        },
+        hover: {
+            mode: 'label'
+        },
+        scales: {
+            xAxes: [{
+                display: true,
+            }],
+            yAxes: [{
+                display: true,
+                ticks: {
+                    min: 0,
+                    max: 300
+                },
+            }]
+        },
+        title: {
+            display: false
+        }
+    };
+
+    // Chart Data
+    var earningData = {
+        labels: labels,
+        datasets: [{
+            label: "My First dataset",
+            data: datapoints,
+            backgroundColor: '#37bc9b',
+            borderColor: "#37bc9b",
+            borderWidth: 1,
+            strokeColor : "#37bc9b",
+            capBezierPoints: true,
+            pointColor : "#fff",
+            pointBorderColor: "#37bc9b",
+            pointBackgroundColor: "#FFF",
+            pointBorderWidth: 2,
+            pointRadius: 4
+        }
+        ]
+    };
+
+    var earningConfig = {
+        type: 'line',
+
+        // Chart Options
+        options : earningOptions,
+
+        // Chart Data
+        data : earningData
+    };
+
+    // Create the chart
+    // var earningChart = new Chart(ctx3, earningConfig);
+    window.earningChart = new Chart(ctx3, earningConfig);
+    window.earningChart.update();
+</script>
+<!--total query graph data end-->
+
+<!--total query graph data SSP wise-->
+<!--<script>
+    var time = 30;
+    var labels = [];
+    for (var i = 1; i <= time; i++) {
+        labels.push(i+':00');
+    }
+
+    var sspWiseQuery = document.getElementById("querySSPwise").getContext("2d");
+    var SSPList = ['SSP1','SSP2','SSP3','SSP4'];
+
+    var datapoints = [0, 20, 20, 60, 60, 120, 230, 180, 230, 180, 120, 125, 120, 125, 105, 110, 170,0, 20, 20, 60, 60, 120, 230, 180, 120, 125, 105, 110, 170];
+    var datapoints1 = [120, 125, 105, 110, 0, 20, 20, 60, 60, 120, 230,230, 180, 120, 125, 180, 120, 125, 105, 110, 170, 170,0, 20, 20, 60, 60, 120, 230, 180];
+    var datapoints2 = [120, 125, 105, 60, 120, 230, 180,0, 20, 20, 60, 60, 120, 230, 180, 230, 180, 120, 125, 120, 125, 105, 110, 170 ,110, 170,0, 20, 20, 60];
+    var datapoints3 = [102, 30, 0, 20, 20, 60, 60, 120, 230, 180, 120, 125, 105, 110, 170, 80,20,0, 20, 20, 60,230, 180, 120, 125, 60, 125, 105, 110, 170];
+    // Chart Options
+    var earningOptions = {
+        responsive: true,
+        maintainAspectRatio: false,
+        datasetStrokeWidth : 3,
+        pointDotStrokeWidth : 4,
+        tooltipFillColor: "rgba(0,0,0,0.8)",
+        legend: {
+            display: true,
+            position: 'top'
+        },
+        hover: {
+            mode: 'label'
+        },
+        scales: {
+            xAxes: [{
+                display: true,
+            }],
+            yAxes: [{
+                display: true,
+                ticks: {
+                    min: 0,
+                    max: 300
+                },
+            }]
+        },
+        title: {
+            display: false
+        }
+    };
+
+    // Chart Data
+    var earningData = {
+        labels: labels,
+        datasets: [{
+            data: datapoints,
+            label: SSPList[0],
+            backgroundColor: "#90caf9",
+            hoverBackgroundColor: "#64b5f6",
+            borderColor: "transparent"
+        }, {
+            data: datapoints1,
+            label: SSPList[1],
+            backgroundColor: "#c5e1a5",
+            hoverBackgroundColor: "#aed581",
+            borderColor: "transparent"
+        },
+            {
+                data: datapoints2,
+                label: SSPList[2],
+                backgroundColor: "#ffcc80",
+                hoverBackgroundColor: "#ffb74d",
+                borderColor: "transparent"
+            }, {
+                data: datapoints3,
+                label: SSPList[3],
+                backgroundColor: "#ef9a9a",
+                hoverBackgroundColor: "#e57373",
+                borderColor: "transparent"
+            }]
+    };
+
+    var earningConfig = {
+        type: 'bar',
+
+        // Chart Options
+        options : earningOptions,
+
+        // Chart Data
+        data : earningData
+    };
+
+    // Create the chart
+    // var earningChart = new Chart(ctx3, earningConfig);
+    window.earningChart = new Chart(sspWiseQuery, earningConfig);
+    window.earningChart.update();
+</script>-->
+<!--total query graph data SSP wise end-->
+
+<!--total query graph data Source Wise wise-->
+<script>
+    var time = 30;
+    var labels = [];
+    for (var i = 1; i <= time; i++) {
+        labels.push(i+':00');
+    }
+
+    var source = document.getElementById("column-stacked2").getContext("2d");
+    var dataLabel = ['App','Web'];
+
+    var datapoints = [0, 20, 20, 60, 60, 120, 230, 180, 230, 180, 120, 125, 120, 125, 105, 110, 170,0, 20, 20, 60, 60, 120, 230, 180, 120, 125, 105, 110, 170];
+    var datapoints1 = [120, 125, 105, 110, 0, 20, 20, 60, 60, 120, 230,230, 180, 120, 125, 180, 120, 125, 105, 110, 170, 170,0, 20, 20, 60, 60, 120, 230, 180];
+    // Chart Options
+    var chartOptions = {
+        title:{
+            display:false,
+            text:"Chart.js Column Chart - Stacked"
+        },
+        tooltips: {
+            mode: 'label'
+        },
+        responsive: true,
+        maintainAspectRatio: false,
+        responsiveAnimationDuration:500,
+        scales: {
+            xAxes: [{
+                stacked: true,
+                display: true,
+                gridLines: {
+                    color: "#f3f3f3",
+                    drawTicks: true,
+                },
+                scaleLabel: {
+                    display: true,
+                }
+            }],
+            yAxes: [{
+                stacked: true,
+                display: true,
+                gridLines: {
+                    color: "#f3f3f3",
+                    drawTicks: true,
+                },
+                scaleLabel: {
+                    display: true,
+                }
+            }]
+        }
+    };
+
+    // Chart Data
+    var chartData = {
+        labels: labels,
+        datasets: [{
+            label: dataLabel[0],
+            data: datapoints,
+            backgroundColor: "#90caf9",
+            hoverBackgroundColor: "#64b5f6",
+            borderColor: "transparent"
+        }, {
+            label: dataLabel[1],
+            data: datapoints1,
+            backgroundColor: "#c5e1a5",
+            hoverBackgroundColor: "#aed581",
+            borderColor: "transparent"
+        }]
+    };
+
+    var config = {
+        type: 'bar',
+
+        // Chart Options
+        options : chartOptions,
+
+        data : chartData
+    };
+
+
+    // Create the chart
+    window.lineChart = new Chart(source, config);
+
+    window.lineChart.update();
+
+</script>
+<!--total query graph data Source wise end-->
+
+<!--total query graph data Creative Wise wise-->
+<script>
+    var time = 30;
+    var labels = [];
+    for (var i = 1; i <= time; i++) {
+        labels.push(i+':00');
+    }
+
+    var source = document.getElementById("column-stacked3").getContext("2d");
+    var dataLabel = ['App','Web'];
+
+    var datapoints = [0, 20, 20, 60, 60, 120, 230, 180, 230, 180, 120, 125, 120, 125, 105, 110, 170,0, 20, 20, 60, 60, 120, 230, 180, 120, 125, 105, 110, 170];
+    var datapoints1 = [120, 125, 105, 110, 0, 20, 20, 60, 60, 120, 230,230, 180, 120, 125, 180, 120, 125, 105, 110, 170, 170,0, 20, 20, 60, 60, 120, 230, 180];
+    var datapoints2 = [120, 125, 105, 60, 120, 230, 180,0, 20, 20, 60, 60, 120, 230, 180, 230, 180, 120, 125, 120, 125, 105, 110, 170 ,110, 170,0, 20, 20, 60];
+    var datapoints3 = [102, 30, 0, 20, 20, 60, 60, 120, 230, 180, 120, 125, 105, 110, 170, 80,20,0, 20, 20, 60,230, 180, 120, 125, 60, 125, 105, 110, 170];
+    // Chart Options
+    var chartOptions = {
+        title:{
+            display:false,
+            text:"Chart.js Column Chart - Stacked"
+        },
+        tooltips: {
+            mode: 'label'
+        },
+        responsive: true,
+        maintainAspectRatio: false,
+        responsiveAnimationDuration:500,
+        scales: {
+            xAxes: [{
+                stacked: true,
+                display: true,
+                gridLines: {
+                    color: "#f3f3f3",
+                    drawTicks: true,
+                },
+                scaleLabel: {
+                    display: true,
+                }
+            }],
+            yAxes: [{
+                stacked: true,
+                display: true,
+                gridLines: {
+                    color: "#f3f3f3",
+                    drawTicks: true,
+                },
+                scaleLabel: {
+                    display: true,
+                }
+            }]
+        }
+    };
+
+    // Chart Data
+    var chartData = {
+        labels: labels,
+        datasets: [{
+            label: "Banner",
+            data: datapoints,
+            backgroundColor: "#90caf9",
+            hoverBackgroundColor: "#64b5f6",
+            borderColor: "transparent"
+        }, {
+            label: "Rich Media",
+            data: datapoints1,
+            backgroundColor: "#c5e1a5",
+            hoverBackgroundColor: "#aed581",
+            borderColor: "transparent"
+        },{
+            label: "Video",
+            data: datapoints2,
+            backgroundColor: "#ffcc80",
+            hoverBackgroundColor: "#ffb74d",
+            borderColor: "transparent"
+        },
+        {
+            label: "Native",
+            data: datapoints3,
+            backgroundColor: "#ef9a9a",
+            hoverBackgroundColor: "#e57373",
+            borderColor: "transparent"
+        }]
+    };
+
+    var config = {
+        type: 'bar',
+
+        // Chart Options
+        options : chartOptions,
+
+        data : chartData
+    };
+
+
+    // Create the chart
+    window.lineChart = new Chart(source, config);
+
+    window.lineChart.update();
+
+</script>
+<!--total query graph data Creative wise end-->
+
+<script>
+    var datapoints =  [120, 125, 105, 110, 110, 220, 220, 100, 110, 120, 230, 230, 180, 120, 125, 180, 120, 125, 105, 110, 170, 170, 200, 120, 220, 160, 260, 250, 230, 180];
+    var datapoints1 = [100, 100, 80,  70,  80,  190, 180,  80,  90,  90, 170, 200, 150, 100, 100, 100, 100, 100,  85,  90, 100, 155, 150, 100, 100, 140, 120, 120, 200, 60];
+    var datapoints2 = [40,  50,  60,  40,  45,  120, 130,  70,  40,  60,  40, 140, 100, 80,   75,  70,  80,  60,  70,  60,  60,  60, 120,  70,  80, 100, 80,   95, 160, 17];
+
+    var time = 30;
+    var labels = [];
+    for (var i = 1; i <= time; i++) {
+        labels.push(i+':00');
+    }
+
+    //Get the context of the Chart canvas element we want to select
+    var ctx = $("#line-chart");
+
+    // Chart Options
+    var chartOptions = {
+        responsive: true,
+        maintainAspectRatio: false,
+        legend: {
+            position: 'top'
+        },
+        hover: {
+            mode: 'label'
+        },
+        scales: {
+            xAxes: [{
+                display: true,
+                gridLines: {
+                    color: "#f3f3f3",
+                    drawTicks: true,
+                },
+                scaleLabel: {
+                    display: false,
+                    labelString: 'Time'
+                }
+            }],
+            yAxes: [{
+                display: true,
+                gridLines: {
+                    color: "#f3f3f3",
+                    drawTicks: false,
+                },
+                scaleLabel: {
+                    display: true,
+                    labelString: 'Counts'
+                }
+            }]
+        },
+        title: {
+            display: false,
+            text: 'Chart.js Line Chart - Legend'
+        }
+    };
+
+    // Chart Data
+    var chartData = {
+        labels: labels,
+        datasets: [{
+            label: "Request",
+            data: datapoints,
+            fill: false,
+            borderColor: "#673AB7",
+            pointBorderColor: "#673AB7",
+            pointBackgroundColor: "#FFF",
+            pointBorderWidth: 1,
+            borderWidth: 2,
+            pointHoverBorderWidth: 1,
+            pointRadius: 4
+        }, {
+            label: "Response",
+            data: datapoints1,
+            fill: false,
+            borderColor: "#00BCD4",
+            pointBorderColor: "#00BCD4",
+            pointBackgroundColor: "#FFF",
+            pointBorderWidth: 1,
+            borderWidth: 2,
+            pointHoverBorderWidth: 1,
+            pointRadius: 4
+        }, {
+            label: "Wins",
+            data: datapoints2,
+            fill: false,
+            borderColor: "#FF5722",
+            pointBorderColor: "#FF5722",
+            pointBackgroundColor: "#FFF",
+            pointBorderWidth: 1,
+            borderWidth: 2,
+            pointHoverBorderWidth: 1,
+            pointRadius: 4
+        }]
+    };
+
+    var config = {
+        type: 'line',
+
+        // Chart Options
+        options : chartOptions,
+
+        data : chartData
+    };
+
+    // Create the chart
+    // var lineChart = new Chart(ctx, config);
+    window.lineChart = new Chart(ctx, config);
+    window.lineChart.update();
+</script>
+
+<script>
+    // Prepare demo data
+    // Data is joined to map using value of 'hc-key' property by default.
+    // See API docs for 'joinBy' for more info on linking data and map.
+    var data = [
+        ['in-py', 5432],
+        ['in-ld', 1432],
+        ['in-wb', 2352],
+        ['in-or', 3325],
+        ['in-br', 2325],
+        ['in-sk', 3342],
+        ['in-ct', 2352],
+        ['in-tn', 2352],
+        ['in-mp', 2324],
+        ['in-2984', 3932],
+        ['in-ga', 1032],
+        ['in-nl', 1132],
+        ['in-mn', 1232],
+        ['in-ar', 1332],
+        ['in-mz', 1432],
+        ['in-tr', 1532],
+        ['in-3464', 1632],
+        ['in-dl', 1732],
+        ['in-hr', 1832],
+        ['in-ch', 1932],
+        ['in-hp', 2032],
+        ['in-jk', 2132],
+        ['in-kl', 2232],
+        ['in-ka', 2332],
+        ['in-dn', 2432],
+        ['in-mh', 2532],
+        ['in-as', 2632],
+        ['in-ap', 2732],
+        ['in-ml', 2832],
+        ['in-pb', 2932],
+        ['in-rj', 3032],
+        ['in-up', 3132],
+        ['in-ut', 3232],
+        ['in-jh', 3323]
+    ];
+
+    // Create the chart
+    Highcharts.mapChart('container', {
+        chart: {
+            map: 'countries/in/in-all'
+        },
+
+        title: {
+            enabled: false,
+            text: null
+        },
+
+        subtitle: {
+            enabled: false,
+            text: null
+        },
+
+        mapNavigation: {
+            enabled: true,
+            buttonOptions: {
+                verticalAlign: 'bottom'
+            }
+        },
+
+        colorAxis: {
+            min: 0
+        },
+        credits:{
+            enabled: false
+        },
+        exporting:{
+            enabled: false
+        },
+        series: [{
+            data: data,
+            name: 'Random data',
+            states: {
+                hover: {
+                    color: '#BADA55'
+                }
+            },
+            dataLabels: {
+                enabled: true,
+                format: '{point.name}'
+            }
+        }]
+    });
+
+</script>
+
+<script>
+    Highcharts.chart('container1', {
+        chart: {
+            plotBackgroundColor: null,
+            plotBorderWidth: 0,
+            plotShadow: false
+        },
+        title: {
+            text: null
+        },
+        tooltip: {
+            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+        },
+        credits:{
+            enabled: false
+        },
+        colors: ["#673AB7", "#00BCD4"],
+        plotOptions: {
+            pie: {
+                dataLabels: {
+                    enabled: false,
+                    distance: 0,
+                    style: {
+                        fontWeight: 'bold',
+                        color: '#607D8B'
+                    }
+                },
+                showInLegend: true
+            }
+        },
+        series: [{
+            type: 'pie',
+            name: 'Browser share',
+            innerSize: '35%',
+            data: [
+                ['Male',   10.38],
+                ['Female',       56.33]
+            ]
+        }]
+    });
+</script>
+
+
+
+<script>
+
+    var dataObj = [['IAB Cat',10.38],['IAB Cat',56.33],['IAB Cat',10.38],['IAB Cat',56.33],['IAB Cat',10.38],['IAB Cat',56.33],['IAB Cat',10.38],['IAB Cat',56.33],['IAB Cat',10.38],['IAB Cat',56.33],['IAB Cat',10.38],['IAB Cat',56.33],['IAB Cat',10.38],['IAB Cat',56.33],['IAB Cat',10.38],['IAB Cat',56.33],['IAB Cat',10.38],['IAB Cat',56.33],['IAB Cat',10.38],['IAB Cat',56.33]];
+
+    console.log(dataObj);
+
+    Highcharts.chart('container3', {
+        chart: {
+            plotBackgroundColor: null,
+            plotBorderWidth: 0,
+            plotShadow: false
+        },
+        title: {
+            text: null
+        },
+        tooltip: {
+            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+        },
+        credits:{
+            enabled: false
+        },
+        plotOptions: {
+            pie: {
+                dataLabels: {
+                    enabled: false,
+                    distance: 0,
+                    style: {
+                        fontWeight: 'bold',
+                        color: '#607D8B'
+                    }
+                }
+                ,
+                showInLegend: true
+            }
+        },
+        legend: {
+            enabled: true,
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'middle',
+            labelFormatter: function() {
+                return this.name + ' ' + this.y + '%';
+            }
+        },
+        series: [{
+            type: 'pie',
+            name: 'Browser share',
+            innerSize: '35%',
+            data: dataObj
+        }]
+    });
+</script>
+
 
 
 </body>
 </html>
+
+
+
+<!--adhalt.com-->
+<!--adssalt.com-->
